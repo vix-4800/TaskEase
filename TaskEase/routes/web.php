@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\TaskController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -23,5 +24,10 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
+Route::middleware(['auth', 'verified'])->group(function () {
+    Route::prefix('/tasks')->name('tasks')->group(function () {
+        Route::get('/', [TaskController::class, 'index']);
+    });
+    });
 
 require __DIR__ . '/auth.php';
