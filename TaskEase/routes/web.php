@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\TaskController;
 use Illuminate\Support\Facades\Route;
 
@@ -27,6 +28,12 @@ Route::middleware('auth')->group(function () {
 Route::middleware(['auth', 'verified'])->group(function () {
     Route::prefix('/tasks')->name('tasks')->group(function () {
         Route::get('/', [TaskController::class, 'index']);
+        Route::get('create', [TaskController::class, 'create'])->name('.create');
+        Route::post('/', [TaskController::class, 'store'])->name('.store');
+        Route::get('{taskId}/edit', [TaskController::class, 'edit'])->name('.edit');
+        Route::put('{taskId}', [TaskController::class, 'update'])->name('.update');
+        Route::patch('{taskId}/complete', [TaskController::class, 'complete'])->name('.complete');
+        Route::delete('{taskId}', [TaskController::class, 'delete'])->name('.delete');
     });
     });
 
