@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CalendarController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\TaskController;
 use Illuminate\Support\Facades\Route;
@@ -34,6 +35,10 @@ Route::middleware(['auth', 'verified'])->group(function () {
         Route::put('{taskId}', [TaskController::class, 'update'])->name('.update');
         Route::patch('{taskId}/complete', [TaskController::class, 'complete'])->name('.complete');
         Route::delete('{taskId}', [TaskController::class, 'delete'])->name('.delete');
+    });
+
+    Route::prefix('/calendar')->name('calendar')->group(function () {
+        Route::get('/', [CalendarController::class, 'index']);
     });
     });
 
