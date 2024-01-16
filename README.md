@@ -1,8 +1,8 @@
-# TaskEase
-
 <p align="center">
-    <img src="TaskEase/public/images/app-logo.png" width="400" alt="Laravel Logo">
+    <img src="TaskEase/public/images/app-logo.png" width="200" alt="Laravel Logo" style="border-radius: 25px;">
 </p>
+
+# TaskEase
 
 ## Description
 
