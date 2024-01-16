@@ -43,4 +43,13 @@ class User extends Authenticatable
         'password' => 'hashed',
     ];
 
+    /**
+     * Define the relationship with tasks.
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function tasks()
+    {
+        return $this->hasMany(Task::class);
+    }
 }
