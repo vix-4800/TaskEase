@@ -12,6 +12,9 @@ DATABASE_NAME=project_database
 DATABASE_USER=project_user
 DATABASE_PASSWORD=^S3HP9nFgZ-XvUN
 
+install_vagrant:
+	sudo apt install virtualbox vagrant
+
 install:
   	# Adding ubuntu 20 box to vagrant
 	vagrant box add ubuntu/focal64 ~/Downloads/focal-server-cloudimg-amd64-vagrant.box
