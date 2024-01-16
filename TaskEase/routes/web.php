@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\CalendarController;
+use App\Http\Controllers\CompletedController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\TaskController;
 use Illuminate\Support\Facades\Route;
@@ -39,6 +40,10 @@ Route::middleware(['auth', 'verified'])->group(function () {
 
     Route::prefix('/calendar')->name('calendar')->group(function () {
         Route::get('/', [CalendarController::class, 'index']);
+    });
+
+    Route::prefix('/completed')->name('completed')->group(function () {
+        Route::get('/', [CompletedController::class, 'index']);
     });
     });
 
