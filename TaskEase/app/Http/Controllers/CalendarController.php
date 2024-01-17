@@ -8,7 +8,9 @@ class CalendarController extends Controller
 {
     public function index()
     {
-        $tasks = auth()->user()->tasks;
+        abort(503);
+
+        $tasks = auth()->user()->tasks->where('due_date',);
 
         return view('calendar.index', compact('tasks'));
     }
