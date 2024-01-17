@@ -76,14 +76,14 @@ class TaskController extends Controller
 
         $task->save();
 
-        return redirect()->back()->with('success', 'Task updated!');
+        return back()->with('success', 'Task updated!');
     }
 
     public function delete(int $taskId)
     {
         Task::find($taskId)->delete();
 
-        return redirect()->back()->with('success', 'Task deleted successfully.');
+        return back()->with('success', 'Task deleted successfully.');
     }
 
     public function complete(int $taskId)
@@ -93,6 +93,6 @@ class TaskController extends Controller
         $task->completed_at = now()->format('Y-m-d H:i');
         $task->save();
 
-        return redirect()->back()->with('success', 'Task completed.');
+        return back()->with('success', 'Task completed.');
     }
 }
