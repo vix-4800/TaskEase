@@ -22,81 +22,81 @@
 
 ## Installation on Virtual Machine
 
-1. Install <a href='https://www.virtualbox.org/wiki/Documentation'>VirtualBox</a>.
+1.  Install <a href='https://www.virtualbox.org/wiki/Documentation'>VirtualBox</a>.
 
--   For Windows:
+    -   For Windows:
 
-    Download the VirtualBox installer from the official website
-    Run the installer and follow the installation wizard instructions
+        Download the VirtualBox installer from the official website
+        Run the installer and follow the installation wizard instructions
 
--   For macOS:
+    -   For macOS:
 
-    Download the VirtualBox distribution from the official website
-    Install VirtualBox following the on-screen instructions
+        Download the VirtualBox distribution from the official website
+        Install VirtualBox following the on-screen instructions
 
--   For Ubuntu:
+    -   For Ubuntu:
 
-    Open the terminal
-    Execute the following commands:
+        Open the terminal
+        Execute the following commands:
 
-        sudo apt install virtualbox
+            sudo apt install virtualbox
 
--   For Fedora:
+    -   For Fedora:
 
-    Open the terminal
-    Execute the following commands:
+        Open the terminal
+        Execute the following commands:
 
-        sudo dnf install VirtualBox
+            sudo dnf install VirtualBox
 
--   For Arch Linux:
+    -   For Arch Linux:
 
-    Open the terminal
-    Execute the following commands:
+        Open the terminal
+        Execute the following commands:
 
-        sudo pacman -S virtualbox
+            sudo pacman -S virtualbox
 
-2. Install <a href='https://developer.hashicorp.com/vagrant/docs'>Vagrant</a>.
+2.  Install <a href='https://developer.hashicorp.com/vagrant/docs'>Vagrant</a>.
 
--   For Windows:
+    -   For Windows:
 
-    Download the Vagrant installer from the official website
-    Run the installer and follow the installation wizard instructions
+        Download the Vagrant installer from the official website
+        Run the installer and follow the installation wizard instructions
 
--   For macOS:
+    -   For macOS:
 
-    Download the Vagrant distribution from the official website
-    Install Vagrant following the on-screen instructions
+        Download the Vagrant distribution from the official website
+        Install Vagrant following the on-screen instructions
 
--   For Ubuntu:
+    -   For Ubuntu:
 
-    Open the terminal
-    Execute the following commands:
+        Open the terminal
+        Execute the following commands:
 
-        sudo apt install vagrant
+            sudo apt install vagrant
 
--   For Fedora:
+    -   For Fedora:
 
-    Open the terminal
-    Execute the following commands:
+        Open the terminal
+        Execute the following commands:
 
-        sudo dnf install vagrant
+            sudo dnf install vagrant
 
--   For Arch Linux:
+    -   For Arch Linux:
 
-    Open the terminal
-    Ensure you have an AUR helper installed, e.g., yay. If not, install it:
+        Open the terminal
+        Ensure you have an AUR helper installed, e.g., yay. If not, install it:
 
-        git clone https://aur.archlinux.org/yay.git
-        cd yay
-        makepkg -si
+            git clone https://aur.archlinux.org/yay.git
+            cd yay
+            makepkg -si
 
-    Then install Vagrant from the AUR:
+        Then install Vagrant from the AUR:
 
-        yay -S vagrant
+            yay -S vagrant
 
-After the installation, type `vagrant` in the terminal or command prompt to confirm a successful installation.
+    After the installation, type `vagrant` in the terminal or command prompt to confirm a successful installation.
 
-3. In the project directory, run the following command: `make init_vagrant`. This will create a new Vagrant virtual machine with the following settings:
+3.  In the project directory, run the following command: `make init_vagrant`. This will create a new Vagrant virtual machine with the following settings:
 
     - **Base box**: ubuntu/focal64
     - **Operating system**: Ubuntu 20.04 LTS
@@ -104,10 +104,10 @@ After the installation, type `vagrant` in the terminal or command prompt to conf
     - **CPUs**: 2
     - **Memory**: 4096 MB -> 4 GB
 
-4. Proceed with the following command: `make install`. This will handle the installation of all the necessary dependencies for your <a href='https://laravel.com/docs/10.x'>Laravel</a> application.
+4.  Proceed with the following command: `make install`. This will handle the installation of all the necessary dependencies for your <a href='https://laravel.com/docs/10.x'>Laravel</a> application.
 
-5. Once the virtual machine is created, start it by running the following command: `make start`
+5.  Once the virtual machine is created, start it by running the following command: `make start`
 
-6. Once the virtual machine is up and running, connect to it using SSH by running the following command: `vagrant ssh`
+6.  Once the virtual machine is up and running, connect to it using SSH by running the following command: `vagrant ssh`
 
-7. You can now connect via SSH using the following command: `ssh -X vagrant@127.0.0.1 -p 2222 -i .vagrant/machines/default/virtualbox/private_key`. It will allow you to use X11 on your machine. You can open the project in your browser at http://localhost:8000
+7.  You can now connect via SSH using the following command: `ssh -X vagrant@127.0.0.1 -p 2222 -i .vagrant/machines/default/virtualbox/private_key`. It will allow you to use X11 on your machine. You can open the project in your browser at http://localhost:8000
