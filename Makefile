@@ -64,6 +64,9 @@ install:
 		. ~/.nvm/nvm.sh && . ~/.profile && . ~/.bashrc && \
 		nvm install $(NODE_VERSION)"
 
+    # Start MySQL Service 
+	vagrant ssh -c "sudo systemctl enable mysql.service && sudo systemctl start mysql.service"
+
     # Create MySQL Database and User
 	vagrant ssh -c "sudo mysql -e 'CREATE DATABASE $(DATABASE_NAME); \
 		CREATE USER \"$(DATABASE_USER)\"@\"%\" IDENTIFIED BY \"$(DATABASE_PASSWORD)\"; \
@@ -95,6 +98,6 @@ start:
     # Start Vagrant Machine
 	vagrant up
 
-    # Start Laravel Development Server and NPM Watch
-	vagrant ssh -c "cd $(PROJECTS_FOLDER)/$(PROJECT_NAME) && nohup php artisan serve &"
-	vagrant ssh -c "cd $(PROJECTS_FOLDER)/$(PROJECT_NAME) && npm update && nohup npm run dev &"
+    # Install NPM dependencies
+	vagrant ssh -c "cd $(PROJECTS_FOLDER)/$(PROJECT_NAME) && npm update"
+	vagrant ssh -c "echo fs.inotify.max_user_watches=524288 | sudo tee -a /etc/sysctl.conf && sudo sysctl -p"

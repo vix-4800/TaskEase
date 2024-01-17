@@ -100,15 +100,14 @@ After the installation, type `vagrant` in the terminal or command prompt to conf
 
     - **Base box**: ubuntu/focal64
     - **Operating system**: Ubuntu 20.04 LTS
-    - **Hostname**: laravel_host
+    - **Hostname**: laravel
     - **CPUs**: 2
     - **Memory**: 4096 MB -> 4 GB
-    - **Storage size**: 20480 MB -> 20 GB
 
-4. Proceed with the following command: make install. This will handle the installation of all the necessary dependencies for your <a href='https://laravel.com/docs/10.x'>Laravel</a> application.
+4. Proceed with the following command: `make install`. This will handle the installation of all the necessary dependencies for your <a href='https://laravel.com/docs/10.x'>Laravel</a> application.
 
 5. Once the virtual machine is created, start it by running the following command: `make start`
 
 6. Once the virtual machine is up and running, connect to it using SSH by running the following command: `vagrant ssh`
 
-7. The Laravel server is now running on port 8000. You can open the project in your browser at http://localhost:8000
+7. You can now connect via SSH using the following command: `ssh -X vagrant@127.0.0.1 -p 2222 -i .vagrant/machines/default/virtualbox/private_key`. It will allow you to use X11 on your machine. You can open the project in your browser at http://localhost:8000
