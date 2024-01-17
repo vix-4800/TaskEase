@@ -24,6 +24,10 @@
                         Completed
                     </x-nav-link>
 
+                    <x-nav-link :href="route('export')" :active="request()->routeIs('export')">
+                        Export
+                    </x-nav-link>
+
                     <x-nav-link :href="route('help')" :active="request()->routeIs('help')">
                         Help
                     </x-nav-link>

@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\CalendarController;
 use App\Http\Controllers\CompletedController;
+use App\Http\Controllers\ExportController;
 use App\Http\Controllers\HelpController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\TaskController;
@@ -49,6 +50,11 @@ Route::middleware(['auth', 'verified'])->group(function () {
 
     Route::prefix('/help')->name('help')->group(function () {
         Route::get('/', [HelpController::class, 'index']);
+    });
+
+    Route::prefix('/export')->name('export')->group(function () {
+        Route::get('/', [ExportController::class, 'index']);
+        Route::get('/download', [ExportController::class, 'export'])->name('.download');
     });
 });
 
