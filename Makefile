@@ -28,10 +28,11 @@ install_vagrant:
 	vagrant box add $(VAGRANT_BOX)
     # vagrant box add $(VAGRANT_BOX) ~/Downloads/focal-server-cloudimg-amd64-vagrant.box
 
-install:
+init_vagrant:
     # Initialize Vagrant Project with Ubuntu Focal Fossa (20.04)
 	vagrant init $(VAGRANT_BOX)
 
+install:
     # Start Vagrant Machine
 	vagrant up
 
@@ -39,8 +40,7 @@ install:
 	vagrant ssh -c "sudo apt update && sudo apt upgrade -y"
 
     # Install PHP and Dependencies
-	vagrant ssh -c "sudo apt-add-repository ppa:ondrej/php && sudo apt update && \
-		sudo apt install -y openssl php$(PHP_VERSION) \
+	vagrant ssh -c "sudo apt install -y php$(PHP_VERSION) \
 		php$(PHP_VERSION)-cli php$(PHP_VERSION)-common php$(PHP_VERSION)-bcmath \
 		php$(PHP_VERSION)-curl php$(PHP_VERSION)-mbstring php$(PHP_VERSION)-mysql \
 		php$(PHP_VERSION)-xml php$(PHP_VERSION)-zip"
@@ -63,14 +63,6 @@ install:
 	vagrant ssh -c "curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | bash && \
 		. ~/.nvm/nvm.sh && . ~/.profile && . ~/.bashrc && \
 		nvm install $(NODE_VERSION)"
-
-    # Install Node.js dependencies for Laravel project
-	vagrant ssh -c "cd $(PROJECTS_FOLDER)/$(PROJECT_NAME) && npm install" !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-
-    # Install MySQL Server and Start Service
-	vagrant ssh -c "sudo apt install mysql-server -y && \
-		sudo systemctl enable mysql.service && \
-		sudo systemctl start mysql.service"
 
     # Create MySQL Database and User
 	vagrant ssh -c "sudo mysql -e 'CREATE DATABASE $(DATABASE_NAME); \
