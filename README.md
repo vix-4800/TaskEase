@@ -6,9 +6,14 @@
 
 ## Description
 
-    TaskEase is a simple and user-friendly Laravel application for hassle-free task management. Organize your to-do list effortlessly with an intuitive interface, making task management a breeze. Stay productive and in control with TaskEase.
+    TaskEase is a simple and user-friendly Laravel application for hassle-free task management.
+    Organize your to-do list effortlessly with an intuitive interface, making task management
+    a breeze. Stay productive and in control with TaskEase.
 
-    This project also provides a Vagrant configuration and Makefile for setting up a development environment for Laravel using Ubuntu 20.04 (Focal Fossa). The Vagrantfile includes configurations for VirtualBox, and it's designed to simplify the process of getting a Laravel project up and running quickly.
+    This project also provides a Vagrant configuration and Makefile for setting up a development
+    environment for Laravel using Ubuntu 20.04 (Focal Fossa). The Vagrantfile includes
+    configurations for VirtualBox, and it's designed to simplify the process of getting
+    a Laravel project up and running quickly.
 
 ## Requirements
 
