@@ -101,3 +101,4 @@ start:
     # Install NPM dependencies
 	vagrant ssh -c "cd $(PROJECTS_FOLDER)/$(PROJECT_NAME) && npm update"
 	vagrant ssh -c "echo fs.inotify.max_user_watches=524288 | sudo tee -a /etc/sysctl.conf && sudo sysctl -p"
+	vagrant ssh -c "sudo apt install firefox"
