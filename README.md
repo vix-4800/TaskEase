@@ -20,7 +20,7 @@
 -   VirtualBox
 -   Vagrant
 
-## Installation
+## Installation on Virtual Machine
 
 1. Install <a href='https://www.virtualbox.org/wiki/Documentation'>VirtualBox</a>.
 
