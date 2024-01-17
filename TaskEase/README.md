@@ -1,66 +1,113 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
-
 <p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
+    <img src="public/images/app-logo.png" width="200" alt="Laravel Logo" style="border-radius: 25px;">
 </p>
 
-## About Laravel
+# TaskEase
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+## Description
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+    TaskEase is a simple and user-friendly Laravel application for hassle-free task management.
+    Organize your to-do list effortlessly with an intuitive interface, making task management
+    a breeze. Stay productive and in control with TaskEase.
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+    This project also provides a Vagrant configuration and Makefile for setting up a development
+    environment for Laravel using Ubuntu 20.04 (Focal Fossa). The Vagrantfile includes
+    configurations for VirtualBox, and it's designed to simplify the process of getting
+    a Laravel project up and running quickly.
 
-## Learning Laravel
+## Requirements
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+-   VirtualBox
+-   Vagrant
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+## Installation
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 2000 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+1. Install <a href='https://www.virtualbox.org/wiki/Documentation'>VirtualBox</a>.
 
-## Laravel Sponsors
+-   For Windows:
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+    Download the VirtualBox installer from the official website
+    Run the installer and follow the installation wizard instructions
 
-### Premium Partners
+-   For macOS:
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[WebReinvent](https://webreinvent.com/)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Jump24](https://jump24.co.uk)**
-- **[Redberry](https://redberry.international/laravel/)**
-- **[Active Logic](https://activelogic.com)**
-- **[byte5](https://byte5.de)**
-- **[OP.GG](https://op.gg)**
+    Download the VirtualBox distribution from the official website
+    Install VirtualBox following the on-screen instructions
 
-## Contributing
+-   For Ubuntu:
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+    Open the terminal
+    Execute the following commands:
 
-## Code of Conduct
+        sudo apt install virtualbox
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+-   For Fedora:
 
-## Security Vulnerabilities
+    Open the terminal
+    Execute the following commands:
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+        sudo dnf install VirtualBox
 
-## License
+-   For Arch Linux:
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+    Open the terminal
+    Execute the following commands:
+
+        sudo pacman -S virtualbox
+
+2. Install <a href='https://developer.hashicorp.com/vagrant/docs'>Vagrant</a>.
+
+-   For Windows:
+
+    Download the Vagrant installer from the official website
+    Run the installer and follow the installation wizard instructions
+
+-   For macOS:
+
+    Download the Vagrant distribution from the official website
+    Install Vagrant following the on-screen instructions
+
+-   For Ubuntu:
+
+    Open the terminal
+    Execute the following commands:
+
+        sudo apt install vagrant
+
+-   For Fedora:
+
+    Open the terminal
+    Execute the following commands:
+
+        sudo dnf install vagrant
+
+-   For Arch Linux:
+
+    Open the terminal
+    Ensure you have an AUR helper installed, e.g., yay. If not, install it:
+
+        git clone https://aur.archlinux.org/yay.git
+        cd yay
+        makepkg -si
+
+    Then install Vagrant from the AUR:
+
+        yay -S vagrant
+
+After the installation, type `vagrant` in the terminal or command prompt to confirm a successful installation.
+
+3. In the project directory, run the following command: `make init_vagrant`. This will create a new Vagrant virtual machine with the following settings:
+
+    - **Base box**: ubuntu/focal64
+    - **Operating system**: Ubuntu 20.04 LTS
+    - **Hostname**: laravel
+    - **CPUs**: 2
+    - **Memory**: 4096 MB -> 4 GB
+
+4. Proceed with the following command: `make install`. This will handle the installation of all the necessary dependencies for your <a href='https://laravel.com/docs/10.x'>Laravel</a> application.
+
+5. Once the virtual machine is created, start it by running the following command: `make start`
+
+6. Once the virtual machine is up and running, connect to it using SSH by running the following command: `vagrant ssh`
+
+7. You can now connect via SSH using the following command: `ssh -X vagrant@127.0.0.1 -p 2222 -i .vagrant/machines/default/virtualbox/private_key`. It will allow you to use X11 on your machine. You can open the project in your browser at http://localhost:8000
