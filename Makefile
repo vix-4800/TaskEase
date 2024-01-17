@@ -28,7 +28,7 @@ install_vagrant:
 	vagrant box add $(VAGRANT_BOX)
     # vagrant box add $(VAGRANT_BOX) ~/Downloads/focal-server-cloudimg-amd64-vagrant.box
 
-install:	
+install:
     # Initialize Vagrant Project with Ubuntu Focal Fossa (20.04)
 	vagrant init $(VAGRANT_BOX)
 
@@ -46,7 +46,7 @@ install:
 		php$(PHP_VERSION)-xml php$(PHP_VERSION)-zip"
 	
     # Install Composer using Script
-	scp -P 2222 -i .vagrant/machines/default/virtualbox/private_key composer_install.sh vagrant@127.0.0.1:/home/vagrant/composer_install.sh
+	scp -P 2222 -i .vagrant/machines/default/virtualbox/private_key -o StrictHostKeyChecking=no composer_install.sh vagrant@127.0.0.1:/home/vagrant/composer_install.sh
 	vagrant ssh -c "chmod +x composer_install.sh && \
 		./composer_install.sh && \
 		sudo mv composer.phar /usr/local/bin/composer && \
@@ -65,7 +65,7 @@ install:
 		nvm install $(NODE_VERSION)"
 
     # Install Node.js dependencies for Laravel project
-    # vagrant ssh -c "cd $(PROJECTS_FOLDER)/$(PROJECT_NAME) && npm install" !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+	vagrant ssh -c "cd $(PROJECTS_FOLDER)/$(PROJECT_NAME) && npm install" !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
     # Install MySQL Server and Start Service
 	vagrant ssh -c "sudo apt install mysql-server -y && \
@@ -94,7 +94,7 @@ install:
 	vagrant ssh -c "php $(PROJECTS_FOLDER)/$(PROJECT_NAME)/artisan migrate"
 
     # Clean up APT Packages
-	vagrant ssh -c "sudo apt-get autoclean && sudo apt-get autoremove -y"
+	vagrant ssh -c "sudo apt autoclean && sudo apt autoremove -y"
 
     # Halt Vagrant Machine
 	vagrant halt
@@ -104,6 +104,5 @@ start:
 	vagrant up
 
     # Start Laravel Development Server and NPM Watch
-	vagrant ssh -c "cd $(PROJECTS_FOLDER)/$(PROJECT_NAME) && \
-		php artisan serve & && \
-		npm run dev &"
+	vagrant ssh -c "cd $(PROJECTS_FOLDER)/$(PROJECT_NAME) && nohup php artisan serve &"
+	vagrant ssh -c "cd $(PROJECTS_FOLDER)/$(PROJECT_NAME) && npm update && nohup npm run dev &"
