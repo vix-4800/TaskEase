@@ -4,6 +4,12 @@
 
 # TaskEase
 
+<p align="center">
+    <a href='https://github.com/vix-4800/TaskEase'>
+        <img src='https://img.shields.io/badge/Type-Educational-blue.svg'>
+    </a>
+</p>
+
 ## Description
 
     TaskEase is a simple and user-friendly Laravel application for hassle-free task management.
